@@ -33,7 +33,7 @@ Stack: flask, sqlalchemy, PostgreSQL, celery, JWT, babel, OOP, pydantic
 Notes
 =====
 
-1. Main applications is located in webapp folder
+1. Main application is located in webapp folder
 
 
 Credits
