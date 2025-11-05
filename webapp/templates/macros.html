@@ -1,0 +1,88 @@
+
+{% macro render_pagination_uni(pagination, endpoint, paramtosend, type="") %}
+<div class="row mt-4"></div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% if pagination.has_prev %}
+        <li class="page-item">
+            {% if type == "tag" %}                                                
+                <a class="page-link" href="{{ url_for(endpoint, tag_name=paramtosend, page=pagination.prev().page) }}" aria-label="Previous">
+            {% elif type == "user" %}
+                <a class="page-link" href="{{ url_for(endpoint, username=paramtosend, page=pagination.prev().page) }}" aria-label="Previous">
+            {% else %}
+                <a class="page-link" href="{{ url_for(endpoint, page=pagination.prev().page) }}" aria-label="Previous">
+            {% endif %}        
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        {% endif %}
+        {% for page in pagination.iter_pages() %}
+            {% if page %}
+                {% if page != pagination.page %}
+                    <li class="page-item">
+                        {% if type == "tag" %}                                                
+                            <a class="page-link" href="{{ url_for(endpoint, tag_name=paramtosend, page=page) }}">{{ page }}</a>
+                        {% elif type == "user" %}
+                            <a class="page-link" href="{{ url_for(endpoint, username=paramtosend, page=page) }}">{{ page }}</a>
+                        {% else %}
+                            <a class="page-link" href="{{ url_for(endpoint, page=page) }}">{{ page }}</a>
+                        {% endif %}
+                    </li>
+                {% else %}
+                    <li class="page-item active">
+                        <a class="page-link" href="">{{ page }}</a>
+                    </li>
+                {% endif %}
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link">…</a>
+                <li>
+            {% endif %}
+        {% endfor %}
+        {% if pagination.has_next %}
+        <li class="page-item">
+            {% if type == "tag" %}                                                
+                <a class="page-link" href="{{ url_for(endpoint, tag_name=paramtosend, page=pagination.next().page) }}" aria-label="Next">
+            {% elif type == "user" %}
+                <a class="page-link" href="{{ url_for(endpoint, username=paramtosend, page=pagination.next().page) }}" aria-label="Next">
+            {% else %}
+                <a class="page-link" href="{{ url_for(endpoint, page=pagination.next().page) }}" aria-label="Next">
+            {% endif %}         
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endmacro %}
+
+{% macro render_posts(posts, pagination=True) %}
+{% if pagination %}
+    {% set _posts = posts.items %}
+{% else %}
+    {% set _posts = posts %}
+{% endif %}
+
+<div class="p-3 shadow">
+{% for post in _posts %}
+<div class="row bg-light shadow-sm">
+<div class="col">
+<div >
+    <h2>
+        <a class="text-dark" href="{{ url_for('blog.post', post_id=post.id) }}">{{ post.title }}</a>
+    </h2>
+</div>
+<div class="row">
+    <div class="col">
+        {{ post.text | truncate(500, True, '...') | safe }}
+        <a href="{{ url_for('blog.post', post_id=post.id) }}">{{_('Read More')}}</a>
+    </div>
+</div>
+</div>
+</div>
+<div class="row mt-3"></div>
+{% endfor %}
+</div>
+{% endmacro %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Reminder{% endblock %}
+{% block body %}
+<div class="p-3 shadow">
+    <div class="row">
+        <div class="col">
+            <h4>Add reminder</h4>
+        </div>
+    </div>
+<div class="row">
+    <div class="col">
+    <form method="POST" action="{{ url_for('blog.home_add_reminder') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.email.label }}
+            {% if form.email.errors %}
+            {% for e in form.email.errors %}
+            <p class="help-block">{{ e }}</p>
+            {% endfor %}
+            {% endif %}
+            {{ form.email(class_='form-control') }}
+        </div>
+        <div class="form-group">
+            {{ form.text.label }}
+            {% if form.text.errors %}
+            {% for e in form.text.errors %}
+            <p class="help-block">{{ e }}</p>
+            {% endfor %}
+            {% endif %}
+            {{ form.text(id="editor", class_='form-control') }}
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+    </div>
+</div>
+</div>
+{% endblock %}

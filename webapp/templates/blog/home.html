@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% import 'macros.html' as macros %}
+{% block title %}Home{% endblock %}
+{% block leftbody %}
+{{ macros.render_posts(posts) }}
+{{ macros.render_pagination_uni(posts, 'blog.home') }}
+<div class="row mt-4"></div>
+<div class="col-lg-2">
+    <a href="{{ url_for('blog.home_add_reminder') }}" class="btn
+   btn-primary">Add reminder</a>
+</div>
+{% endblock %}

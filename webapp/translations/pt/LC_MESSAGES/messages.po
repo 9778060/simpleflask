@@ -1,0 +1,72 @@
+# Portuguese translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-06-24 01:16+0300\n"
+"PO-Revision-Date: 2022-06-24 00:17+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt\n"
+"Language-Team: pt <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: webapp/templates/404.html:3
+msgid "Ups, Page not found!"
+msgstr "PT_Ups, Page not found!_PT"
+
+#: webapp/templates/base.html:7
+msgid "Blog"
+msgstr "PT_Blog_PT"
+
+#: webapp/templates/footer.html:2
+msgid "Hands on Web development with Flask - 2018"
+msgstr "PT_Hands on Web development with Flask - 2018_PT"
+
+#: webapp/templates/head.html:5
+msgid "Welcome to the blog!"
+msgstr "PT_Welcome to the blog!_PT"
+
+#: webapp/templates/macros.html:80
+msgid "Read More"
+msgstr "PT_Read More_PT"
+
+#: webapp/templates/navbar.html:11
+msgid "New Post"
+msgstr "PT_New Post_PT"
+
+#: webapp/templates/navbar.html:16
+msgid "Admin"
+msgstr "PT_Admin_PT"
+
+#: webapp/templates/navbar.html:31
+msgid "Logout"
+msgstr "PT_Logout_PT"
+
+#: webapp/templates/navbar.html:37
+msgid "Login"
+msgstr "PT_Login_PT"
+
+#: webapp/templates/navbar.html:41
+msgid "Register"
+msgstr "PT_Register_PT"
+
+#: webapp/templates/blog/comment.html:2
+msgid "Comment"
+msgstr "PT_Comment_PT"
+
+#~ msgid "Welcome to this Blog"
+#~ msgstr "PT_Welcome to this Blog_PT"
+
+#~ msgid "Recent Posts"
+#~ msgstr "PT_Recent Posts_PT"
+
+#~ msgid "Popular Tags"
+#~ msgstr "PT_Popular Tags_PT"
